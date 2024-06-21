@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>إضافة صفوف إلى الجدول</title>
+    <!-- <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        th {
+            border: 1px solid blue;
+            padding: 8px;
+            margin: auto;
+            text-align: center;
+        }
+
+        td {
+            border: 1px solid blue;
+            padding: 8px;
+            text-align: center;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+    </style> -->
+</head>
+
+<body>
+    <section class="properties">
+        <h1>Properties </h1>
+        <div class="mmt-custom-content col-sm-12 mmt-table-custom-parent col-lg-12">
+            <table id="TABLE-1" class="mmt-table mmt-table-custom selected">
+                <thead>
+                    <tr>
+                        <th>اختيار</th>
+                        <th>اظهار التفاصيل</th>
+                        <th>الايجار الشهري</th>
+                        <th>التفاصيل</th>
+                        <th>المدينة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button class="details-btn">more</button></td>
+                        <td>800000 ليرة سورية</td>
+                        <td>شقة ثلاث غرف وصالة 120 م</td>
+                        <td>دمشق1</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button onclick="showDetails(this)">more</button></td>
+                        <td>500000 ليرة سورية</td>
+                        <td>شقة غرفتين وصالة 70 م</td>
+                        <td>دمشق2</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button onclick="showDetails(this)">more</button></td>
+                        <td>1500000 ليرة سورية</td>
+                        <td>اربع غرف وصالة مع تراس خارجي 240 م</td>
+                        <td>حمص1</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button onclick="showDetails(this)">more</button></td>
+                        <td>400000 ليرة سورية</td>
+                        <td>ثلاث غرف وصالة 120 م</td>
+                        <td>حمص2</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button onclick="showDetails(this)">more</button></td>
+                        <td>2000000 ليرة سورية</td>
+                        <td>غرفتين وصاله على البحر 120 م</td>
+                        <td>لاذقية1</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button onclick="showDetails(this)">more</button></td>
+                        <td>5000000 ليرة سورية</td>
+                        <td>ست غرف وصالتين على البحر 290 م</td>
+                        <td>لاذقية2</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button onclick="showDetails(this)">more</button></td>
+                        <td>300000 ليرة سورية</td>
+                        <td>ثلاث غرف وصالة 180 م</td>
+                        <td>درعا1</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button onclick="showDetails(this)">more</button></td>
+                        <td>250000 ليرة سورية</td>
+                        <td>غرفتين وموزع صغير 80 م</td>
+                        <td>درعا2</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button onclick="showDetails(this)">more</button></td>
+                        <td>500000 ليرة سورية</td>
+                        <td>شقة غرفتين وصالون 120 م</td>
+                        <td>سويدا1</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button onclick="showDetails(this)">more</button></td>
+                        <td>400000 ليرة سورية</td>
+                        <td>شقة غرفة وموزع 100 م</td>
+                        <td>سويدا2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <button id="openPopupBtn" role="button"><span>go now</span></button>
+    <br>
+    <a href="home.html">
+        <button id="but" role="button"><span>home </span></button>
+    </a>
+
+    <div id="popup" class="popup">
+        <h2>عنوان النافذة المنبثقة</h2>
+        <form id="applicationForm">
+            <label for="fullName">الاسم الكامل لمقدم الطلب:</label>
+            <input type="text" id="fullName" name="fullName" required><br><br>
+            <label for="nationalID">الرقم الوطني:</label>
+            <input type="text" id="nationalID" name="nationalID" pattern="[0-9]{11}"><br><br>
+            <label for="birthDate">تاريخ الولادة:</label>
+            <input type="date" id="birthDate" name="birthDate"><br><br>
+            <label for="mobileNumber">رقم الموبايل:</label>
+            <input type="tel" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}"><br><br>
+            <label for="email">البريد الإلكتروني:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <button type="button" id="submitFormBtn">إرسال</button>
+        </form>
+        <div id="totalPriceMessage"></div>
+        <button id="closePopupBtn">إغلاق</button>
+    </div>
+
+
+    <div id="successPopup" class="popup">
+        <button id="closeSuccessPopupBtn">إغلاق</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="myfunctions.js"></script>
+
+</body>
+
+</html>
